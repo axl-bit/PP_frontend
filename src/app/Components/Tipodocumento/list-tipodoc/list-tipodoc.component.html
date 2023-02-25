@@ -1,0 +1,63 @@
+<div class="container mt-5">
+  <div class="wave"></div>
+  <div class="container">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>Tipos de<b> Documentos</b></h2>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>codigo</th>
+            <th>nombre</th>
+            <th>descripcion</th>
+            <th>estado</th>
+            <th>Acciones</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tipodoc of tipodoc">
+            <td>{{ tipodoc.id_tipo_documento }}</td>
+            <td>{{ tipodoc.codigo_tipodoc }}</td>
+            <td>{{ tipodoc.nombre_tipodoc }}</td>
+            <td>{{ tipodoc.descripcion_tipodoc }}</td>
+            <td>{{ tipodoc.estado_tipodoc ? "activo" : "desactivado" }}</td>
+            <td>
+              <button
+                class="btn btn-outline-info"
+                [routerLink]="[
+                  '/TipoDoc/actualizar/',
+                  tipodoc.id_tipo_documento
+                ]"
+              >
+                <i class="fa fa-edit">edit</i>
+              </button>
+              <button
+                style="margin-left: 3px"
+                class="btn btn-outline-danger"
+                (click)="borrarTipoDoc(tipodoc.id_tipo_documento)"
+              >
+                <i class="fa fa-trash">delete</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div align="right">
+        <button
+          class="btn btn-outline-success"
+          type="button"
+          [routerLink]="'/TipoDoc/crear'"
+        >
+          Crear
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

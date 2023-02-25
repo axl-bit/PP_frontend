@@ -1,0 +1,48 @@
+<div
+  class="padre"
+  (scroll)="onscroll()"
+  [ngClass]="navbarfixed ? 'fixed' : 'nofixed'"
+>
+  <div class="hijo">
+    <nav id="my-first">
+      <ul>
+        <li class="logotype">
+          <img src="../../../assets/img/sintad-logo.png" alt="">
+        </li>
+
+        <li class="burger" (click)="toggleMenu()">
+          <picture>
+            <img
+              src="assets/img/588a6507d06f6719692a2d15.png"
+              alt="menu-icon"
+            />
+          </picture>
+        </li>
+
+        <li class="menu" [class.is-open]="isMenuOpen">
+          <a class="menu-item" *ngIf = "!isLoggedIn"
+          [routerLink]="'/Inicio'">Login</a>
+          <a class="menu-item" *ngIf="isLoggedIn"
+          [routerLink]="'/Entidad'">Entidad</a>
+          <a class="menu-item" *ngIf="isLoggedIn"
+          [routerLink]="'/TipoCont'">Tipo de contribuyente</a>
+          <a class="menu-item" *ngIf="isLoggedIn"
+          [routerLink]="'/TipoDoc'">Tipo de documento</a>
+          <a class="menu-item" *ngIf = "!isLoggedIn"
+          [routerLink]="'/Signup'">signup</a>
+          <a class="menu-item"
+          *ngIf="isLoggedIn"
+          (click)="logout()"
+          >Logout</a>
+          <a
+            class="menu-item"
+            *ngIf="isLoggedIn && user"
+            [routerLink]="'/Perfil'"
+          >
+            Usuario: {{ user.username }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

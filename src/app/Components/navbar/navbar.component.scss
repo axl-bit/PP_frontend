@@ -1,0 +1,118 @@
+$menuHeight: 60px;
+$menuBreakpoint: 768px;//768px;
+
+/*this area is for fixed navbar*/
+.fixed {
+  position: fixed;
+  width: 100%;
+  transition: 0.2s linear;
+  top: 0px;
+}
+
+.nofixed {
+  position: static;
+  transition: 0.2s linear;
+  top: -50px;
+}
+
+/*this area is for adjusting little things*/
+
+.padre{
+  display: flex;
+  background-color: rgba(54, 54, 54, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+.hijo {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#my-first{
+  ul{
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .logotype{
+    a{
+      padding: 0 8px;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.774)
+    }
+
+    img{
+      padding-left: 10%;
+      width: 70%;
+    }
+  }
+
+  .burger{
+    padding: 0 10px;
+    // border-left: 1px  solid rgb(36, 47, 64);
+    // border: 1px solid rgb(36, 47, 64);
+    display: none;
+    cursor: pointer;
+
+    i{
+      color: rgb(204, 164, 59);
+      line-height: $menuHeight;
+    }
+
+    img{
+      color: rgb(204, 164, 59);
+      line-height: $menuHeight;
+      width: 20px;
+      padding: 0;
+    }
+
+    // esta parte hace que el menu se oculte
+    // cuando es menor al breackpoint
+    @media (max-width: $menuBreakpoint){
+      display: block;
+      margin-left: 50%;
+    }
+
+  }
+
+  .menu{
+    display: flex;
+    align-items: center;
+
+    //esta parte aparescan los li que sobran
+    //a la hora de pasar el breakpoint
+    @media (max-width: $menuBreakpoint){
+      display: none;
+
+      &.is-open{
+        display: block;
+        position: absolute;
+        top: #{$menuHeight - 25};
+        // right: 0px;
+        left: 50%;
+        background:rgba(54, 54, 54, 0.911);
+        width: 50%;
+
+        .menu-item{
+          border-bottom: 1px solid rgb(229, 229, 229);
+        }
+      }
+    }
+
+    .menu-item {
+      padding: 0 10px;
+      height: $menuHeight;
+      line-height: $menuHeight;
+      text-decoration: none;
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgb(204, 164, 59);
+    }
+  }
+}

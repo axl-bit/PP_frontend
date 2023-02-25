@@ -1,0 +1,67 @@
+<div>
+  <div class="container m-sm-5">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-3">
+            <h2>lista de<b> Entidades</b></h2>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>tipo documento</th>
+            <th>nro documento</th>
+            <th>razon</th>
+            <th>nombre comercial</th>
+            <th>contribuyente</th>
+            <th>direccion</th>
+            <th>telefono</th>
+            <th>estado</th>
+            <th>Acciones</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entidades of entidades">
+            <td>{{ entidades.id_entidad }}</td>
+            <td>{{ entidades.id_tipo_documento.nombre_tipodoc }}</td>
+            <td>{{ entidades.nro_documento }}</td>
+            <td>{{ entidades.razon_social }}</td>
+            <td>{{ entidades.nombre_comercial }}</td>
+            <td>{{ entidades.id_tipo_contribuyente.nombre_contribuyente }}</td>
+            <td>{{ entidades.direccion }}</td>
+            <td>{{ entidades.telefono_entidad }}</td>
+            <td>{{ entidades.estado_entidad ? "activo" : "desactivado" }}</td>
+            <td>
+              <button
+                class="btn btn-outline-info"
+                [routerLink]="['/Entidad/actualizar/', entidades.id_entidad]"
+              >
+                <i class="fa fa-edit">edit</i>
+              </button>
+              <button
+                style="margin-left: 3px"
+                class="btn btn-outline-danger"
+                (click)="borrarEntidad(entidades.id_entidad)"
+              >
+                <i class="fa fa-trash">delete</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div align="right">
+        <button
+          class="btn btn-outline-success"
+          type="button"
+          [routerLink]="'/Entidad/crear'"
+        >
+          Crear
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

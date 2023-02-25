@@ -1,0 +1,52 @@
+<div style="width: 400px; margin: auto; padding-top: 5%">
+  <div *ngIf="TipoContActual" class="edit-form">
+    <h4>Actualizar Tipo de contribuyente</h4>
+
+    <form>
+      <div class="form-group">
+        <label for="nombre_contribuyente">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre_contribuyente"
+          [(ngModel)]="TipoContActual.nombre_contribuyente"
+          name="nombre_contribuyente"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="">activo</label>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="TipoContActual.estado_contribuyente"
+            name="estado_contribuyente"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </form>
+    <br />
+    <div class="form-group" align="right">
+      <button
+        type="submit"
+        class="btn btn-outline-secondary"
+        (click)="ActualizarTipoCont()"
+      >
+        Actualizar
+      </button>
+
+      <button
+        type="submit"
+        class="m-3 btn btn-outline-danger"
+        (click)="regresar()"
+      >
+        regresar
+      </button>
+    </div>
+
+    <p>{{ mensaje }}</p>
+
+    <div *ngIf="!TipoContActual"></div>
+  </div>
+</div>

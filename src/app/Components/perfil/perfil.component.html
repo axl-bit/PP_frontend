@@ -1,0 +1,31 @@
+<div class="container padre">
+  <div class="imgpadre">
+    <img src="../../../assets/img/Account-User-PNG-Photo.png" alt="">
+  </div>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <table class="table text-center">
+        <tr>
+          <td>Nombre de usuario</td>
+          <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+          <td>ID</td>
+          <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+          <td>Teléfono</td>
+          <td>{{ user.telefono }}</td>
+        </tr>
+        <tr>
+          <td>Rol</td>
+          <td>{{ user.authorities[0].authority }}</td>
+        </tr>
+        <tr>
+          <td>Estado</td>
+          <td>{{ user.enabled ? "Activo" : "No activo" }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

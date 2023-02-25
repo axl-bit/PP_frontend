@@ -1,0 +1,55 @@
+<div class="padre">
+  <div class="hijo">
+    <div class="contenedor">
+      <header class="header">
+        <h1>
+          bienvenidos a SINTAD !!
+        </h1>
+      </header>
+      <main class="contenido">
+        <h1>Inicio de sesión</h1>
+        <br>
+
+        <form (ngSubmit)="formSubmit()">
+
+          <div class="login-form">
+            <div class="control-group">
+              <input
+                type="text"
+                class="login-field"
+                value=""
+                placeholder="username"
+                id="login-name"
+                [(ngModel)]="loginData.username"
+                name="username"
+              />
+              <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
+
+            <div class="control-group">
+              <input
+                type="password"
+                class="login-field"
+                value=""
+                placeholder="password"
+                id="login-pass"
+                [(ngModel)]="loginData.password"
+                name="password"
+              />
+              <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary btn-large btn-block">
+                Iniciar sesión
+              </button>
+            </div>
+          </div>
+        </form>
+      </main>
+      <aside class="sidebar">
+        <img src="../../../assets/img/Account-User-PNG-Photo.png" alt="">
+      </aside>
+    </div>
+  </div>
+</div>

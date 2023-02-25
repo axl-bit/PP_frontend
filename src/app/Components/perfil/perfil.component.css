@@ -1,0 +1,15 @@
+.padre{
+  background-color: white;
+  margin-top: 20%;
+}
+
+.imgpadre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+
+img{
+  width: 40%;
+}

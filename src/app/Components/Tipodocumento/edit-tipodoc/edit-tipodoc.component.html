@@ -1,0 +1,72 @@
+<div style="width: 400px; margin: auto; padding-top: 5%">
+  <div *ngIf="TipoDocActual" class="edit-form">
+    <h4>Actualizar Tipo de Documento</h4>
+
+    <form>
+      <div class="form-group">
+        <label for="codigo_tipodoc">Codigo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="codigo_tipodoc"
+          [(ngModel)]="TipoDocActual.codigo_tipodoc"
+          name="codigo_tipodoc"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nombre_tipodoc">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre_tipodoc"
+          [(ngModel)]="TipoDocActual.nombre_tipodoc"
+          name="nombre_tipodoc"
+        />
+      </div>
+      <div class="form-group">
+        <label for="descripcion_tipodoc">descripcion</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descripcion_tipodoc"
+          [(ngModel)]="TipoDocActual.descripcion_tipodoc"
+          name="descripcion_tipodoc"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="">activo</label>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="TipoDocActual.estado_tipodoc"
+            name="estado_tipodoc"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </form>
+    <br />
+    <div class="form-group" align="right">
+      <button
+        type="submit"
+        class="btn btn-outline-secondary"
+        (click)="ActualizarTipoDoc()"
+      >
+        Actualizar
+      </button>
+
+      <button
+        type="submit"
+        class="m-3 btn btn-outline-danger"
+        (click)="regresar()"
+      >
+        regresar
+      </button>
+    </div>
+
+    <p>{{ mensaje }}</p>
+
+    <div *ngIf="!TipoDocActual"></div>
+  </div>
+</div>

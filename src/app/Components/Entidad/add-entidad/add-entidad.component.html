@@ -1,0 +1,116 @@
+<div style="width: 400px; margin: auto; padding-top: 5%">
+  <h4>Nueva Entidad</h4>
+
+  <form>
+
+
+    <div class="form-group">
+      <label for="id_tipo_documento">tipo de documento:</label>
+      <br />
+      <select name="id_tipo_documento" class="form-select" [(ngModel)]="entidadnueva.id_tipo_documento">
+        <option [ngValue]="item" *ngFor="let item of tipodoc">
+          {{ item.nombre_tipodoc }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="id_tipo_documento">nro documento:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nro_documento"
+        [(ngModel)]="entidadnueva.nro_documento"
+        name="nro_documento"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="razon_social">Razon social:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="razon_social"
+        [(ngModel)]="entidadnueva.razon_social"
+        name="razon_social"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_comercial">Nombre comercial</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre_comercial"
+        [(ngModel)]="entidadnueva.nombre_comercial"
+        name="nombre_comercial"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="id_tipo_contribuyente">tipo de Contribuyentes:</label>
+      <br />
+      <select name="id_tipo_contribuyente" class="form-select" [(ngModel)]="entidadnueva.id_tipo_contribuyente">
+        <option [ngValue]="item" *ngFor="let item of tipocont">
+          {{ item.nombre_contribuyente }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="direccion">Direccion:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="direccion"
+        [(ngModel)]="entidadnueva.direccion"
+        name="direccion"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="telefono_entidad">Telefono: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono_entidad"
+        [(ngModel)]="entidadnueva.telefono_entidad"
+        name="telefono_entidad"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="">activo</label>
+      <label class="switch">
+        <input
+          type="checkbox"
+          [(ngModel)]="entidadnueva.estado_entidad"
+          name="estado_contribuyente"
+        />
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </form>
+  <br />
+  <div class="form-group" align="right">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      (click)="crearEntidad()"
+    >
+      crear
+    </button>
+
+    <button
+      type="submit"
+      class="m-3 btn btn-outline-danger"
+      (click)="regresar()"
+    >
+      regresar
+    </button>
+  </div>
+
+  <p>{{ mensaje }}</p>
+
+  <div *ngIf="!entidadnueva"></div>
+</div>
